@@ -3,6 +3,8 @@ lua-bitmap
 
 Read 24bpp uncompressed Bitmaps from pure Lua.
 
+Warning: ATM still verry bugy!
+
 
 Install
 -------

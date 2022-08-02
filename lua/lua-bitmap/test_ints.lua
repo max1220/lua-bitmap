@@ -4,7 +4,7 @@ This file tests the functions used internally to read/write
 integer values from the bitmap.
 ]]
 
-local Bitmap = require("bitmap")
+local Bitmap = require("lua-bitmap")
 
 -- create a new bitmap structure, but don't create header
 -- (create uninitialized bmp structure)

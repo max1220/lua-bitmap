@@ -18,6 +18,10 @@ local bmp_header_planes = 26
 local bmp_header_bpp = 28
 local bmp_header_compression = 30
 local bmp_header_image_size = 34
+--local bmp_header_bitmask_r = 60
+--local bmp_header_bitmask_g = 64
+--local bmp_header_bitmask_b = 68
+--local bmp_header_bitmask_a = 72
 
 local function get_data_size(width, height, bpp)
 	local line_w = math.ceil(width/4)*4
@@ -86,7 +90,15 @@ local function new_bitmap()
 			return nil, "Bitmap magic header not found"
 		end
 		local compression = self:read_dword(bmp_header_compression)
-		if compression ~= 0 then
+        --[[
+        TODO: Add BI_BITFIELDS support for 24bpp and 32bpp bitmaps
+        if compression == 3 then
+            local bitmask_r = self:read_dword(bmp_header_bitmask_r)
+            local bitmask_g = self:read_dword(bmp_header_bitmask_g)
+            local bitmask_b = self:read_dword(bmp_header_bitmask_b)
+		end
+        ]]
+        if compression ~= 0 then
 			return nil, "Only uncompressed bitmaps supported. Is: "..tostring(compression)
 		end
 

@@ -2,7 +2,7 @@
 
 After installing the library, you can load this library using:
 ```
-Bitmap = require("bitmap")
+Bitmap = require("lua-bitmap")
 ```
 
 The returned table(`Bitmap` in the example above) contains three functions:

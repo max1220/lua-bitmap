@@ -7,8 +7,8 @@ Currently this library is not published on a luarocks server,
 so you need to clone this repository and build it yourself:
 
 ```
-git clone https://github.com/max1220/lua-getch
-cd lua-getch
+git clone https://github.com/max1220/lua-bitmap
+cd lua-bitmap
 # install locally, usually to ~/.luarocks
 luarocks make --local
 ```

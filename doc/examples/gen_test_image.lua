@@ -3,7 +3,7 @@
 This is a small example script that generates a simple
 test image and saves it as Windows Bitmap.
 ]]
-local Bitmap = require("bitmap")
+local Bitmap = require("lua-bitmap")
 
 
 -- print usage information

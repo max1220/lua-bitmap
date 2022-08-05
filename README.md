@@ -23,6 +23,18 @@ See [doc/FILE_FORMAT.md](doc/FILE_FORMAT.md)
 
 Library usage is documented in `doc/USAGE.md`.
 
+Example:
+
+```
+local Bitmap = require("lua-bitmap") -- load module
+local bmp = Bitmap.empty_bitmap(width, height, alpha)
+--local bmp = Bitmap.from_string(data)
+--local bmp = Bitmap.from_file(path)
+--local bmp = Bitmap._new_bitmap()
+r,g,b,a = bmp:get_pixel(x,y) -- get color value at x,y
+bmp:set_pixel(x,y,r,g,b,a) -- set pixel at x,y to r,g,b,a[0-255]
+```
+
 See [doc/USAGE.md](doc/USAGE.md)
 
 

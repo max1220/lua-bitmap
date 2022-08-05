@@ -1,5 +1,5 @@
 #!/usr/bin/env lua
-local Bitmap = require("bitmap")
+local Bitmap = require("lua-bitmap")
 
 -- this is a small example script that renders a Windows Bitmap as very primitive ANSI art,
 -- using the 256-color(technically 240-color) or 23-bit colors terminal escape sequences.

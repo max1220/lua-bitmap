@@ -1,9 +1,9 @@
 # LuaRocks installation
 
-This library is packaged and build using Luarocks, which makes building
+This library is packaged and build using LuaRocks, which makes building
 and installing easy.
 
-Currently this library is not published on a luarocks server,
+Currently this library is not published on a LuaRocks server,
 so you need to clone this repository and build it yourself:
 
 ```

@@ -151,9 +151,7 @@ local function new_bitmap()
 		self:write_word(bmp_header_bpp, bpp)
 		self:write_dword(bmp_header_pixel_offset, self.pixel_offset)
 
-		local line_w = math.ceil(width/4)*4
-		self:write_long(bmp_header_width, line_w)
-		--self:write_long(bmp_header_width, width)
+		self:write_long(bmp_header_width, width)
 		self:write_dword(bmp_header_image_size, self.data_size)
 
 		if self.topdown then
@@ -176,10 +174,11 @@ local function new_bitmap()
 
 		-- calculate byte offset in data
 		local Bpp = self.bpp/8
-		local line_w = math.ceil(self.width/4)*4
-		local index = self.pixel_offset + y*line_w*Bpp + x*Bpp
+		local row_len = self.width * Bpp -- length of pixel data in bytes
+		local row_stride = math.ceil(row_len/4)*4 -- padded length of a row in bytes
+		local index = self.pixel_offset + y*row_stride + x*Bpp
 		if self.topdown then
-			index = self.pixel_offset + (self.height-y-1)*Bpp*line_w + x*Bpp
+			index = self.pixel_offset + (self.height-y-1)*row_stride + x*Bpp
 		end
 
 		-- read r,g,b color values
@@ -210,10 +209,11 @@ local function new_bitmap()
 
 		-- calculate byte offset in data
 		local Bpp = self.bpp/8
-		local line_w = math.ceil(self.width/4)*4
-		local index = self.pixel_offset + y*line_w*Bpp + x*Bpp
+		local row_len = width * Bpp -- length of pixel data in bytes
+		local row_stride = math.ceil(row_len/4)*4 -- padded length of a row in bytes
+		local index = self.pixel_offset + y*row_stride + x*Bpp
 		if self.topdown then
-			index = self.pixel_offset + (self.height-y-1)*Bpp*line_w + x*Bpp
+			index = self.pixel_offset + (self.height-y-1)*row_stride + x*Bpp
 		end
 
 		-- write new pixel value

@@ -209,7 +209,7 @@ local function new_bitmap()
 
 		-- calculate byte offset in data
 		local Bpp = self.bpp/8
-		local row_len = width * Bpp -- length of pixel data in bytes
+		local row_len = self.width * Bpp -- length of pixel data in bytes
 		local row_stride = math.ceil(row_len/4)*4 -- padded length of a row in bytes
 		local index = self.pixel_offset + y*row_stride + x*Bpp
 		if self.topdown then
